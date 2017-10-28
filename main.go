@@ -11,6 +11,7 @@ import (
 	"github.com/hoisie/redis"
 )
 
+var version = "0.0.1-dev" // x-docker-hub-build-monitor
 var redisUrl = flag.String("redis", "localhost:6379", "Redis URL <host ip>:<port>")
 var serveAddr = flag.String("serve", ":80", "Interface address and port, <ip>:<port>")
 var keyTimeout = flag.Int("cache-timeout", 300, "Time, in seconds, for key expiration")

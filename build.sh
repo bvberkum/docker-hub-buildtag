@@ -15,3 +15,4 @@ docker build -t hubmon . &&
 echo "Starting test server" &&
 docker run --link redis:db -ti -p 8123:80 hubmon -redis db:6379 -cache-timeout 10
 
+# Id: x-docker-hub-build-monitor/0.0.1-dev

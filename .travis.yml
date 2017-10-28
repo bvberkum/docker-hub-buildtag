@@ -17,7 +17,23 @@ script:
   - docker build -t hubmon .
 
 after_success:
-  - test "$TRAVIS_BRANCH" != "master"  || { 
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      echo docker push bvberkum/hubmon;
-    }
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - echo '---------' && env && echo '--------------'
+  - echo "Pushing hubmon:$TRAVIS_BRANCH or hubmon:$TRAVIS_TAG"
+  - case "$TRAVIS_BRANCH" in
+      dev )
+          docker tag hubmon:latest $DOCKER_USERNAME/hubmon:dev;
+          docker push $DOCKER_USERNAME/hubmon:dev
+        ;;
+      master )
+          docker tag hubmon:latest $DOCKER_USERNAME/hubmon:latest;
+          docker push $DOCKER_USERNAME/hubmon:latest
+        ;;
+    esac
+  - case "$TRAVIS_TAG" in
+      v[0-9]* )
+          tag="$(echo $TRAVIS_TAG | cut -c2-)";
+          docker tag hubmon:latest $DOCKER_USERNAME/hubmon:$tag;
+          docker push $DOCKER_USERNAME/hubmon:$tag
+        ;;
+    esac
