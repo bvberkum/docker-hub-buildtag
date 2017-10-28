@@ -5,7 +5,7 @@
 ![](https://img.shields.io/github/languages/code-size/bvberkum/x-docker-hub-build-monitor.svg)
 ![](https://img.shields.io/github/repo-size/bvberkum/x-docker-hub-build-monitor.svg)
 
-Version: 0.0.1-dev
+Version: 0.0.2-dev
 ### Master: ![latest/master](https://img.shields.io/github/last-commit/bvberkum/x-docker-hub-build-monitor/master.svg) ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/hubmon/latest.svg) ![image layers](https://img.shields.io/imagelayers/layers/bvberkum/hubmon/latest.svg)
 ### Dev: ![dev](https://img.shields.io/github/last-commit/bvberkum/x-docker-hub-build-monitor/dev.svg) ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/hubmon/dev.svg) ![image layers](https://img.shields.io/imagelayers/layers/bvberkum/hubmon/dev.svg)
 - Fork of [cpuguy83/docker-hub-buildtag](/cpuguy83/docker-hub-buildtag) updated
