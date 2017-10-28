@@ -1,4 +1,5 @@
-# DockerHub buildtag
+# Docker Hub Builds
+[![](http://img.shields.io/travis/bvberkum/x-docker-hub-build-monitor.svg)](https://travis-ci.org/bvberkum/x-docker-hub-build-monitor)
 ![repo license](https://img.shields.io/github/license/bvberkum/x-docker-hub-build-monitor.svg)
 ![commits per year](https://img.shields.io/github/commit-activity/y/bvberkum/x-docker-hub-build-monitor.svg)
 ![](https://img.shields.io/github/languages/code-size/bvberkum/x-docker-hub-build-monitor.svg)
