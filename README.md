@@ -1,6 +1,9 @@
 # Docker Hub Builds
+
 [![](http://img.shields.io/travis/bvberkum/x-docker-hub-build-monitor.svg)](https://travis-ci.org/bvberkum/x-docker-hub-build-monitor)
+
 ![repo license](https://img.shields.io/github/license/bvberkum/x-docker-hub-build-monitor.svg)
+
 ![commits per year](https://img.shields.io/github/commit-activity/y/bvberkum/x-docker-hub-build-monitor.svg)
 ![](https://img.shields.io/github/languages/code-size/bvberkum/x-docker-hub-build-monitor.svg)
 ![](https://img.shields.io/github/repo-size/bvberkum/x-docker-hub-build-monitor.svg)
@@ -15,14 +18,18 @@ Rewrote original project and containerized, with some help from [Building Minima
 
 ## Usage
 ```bash
+docker run --rm bvberkum/hubmon -h
+```
+```bash
 docker run -d --name redis redis
-docker run --link redis:db -d bvberkum/hubmon -redis db:6379
+docker run --link redis:db -p 8123:80 bvberkum/hubmon -redis db:6379 -cache-timeout 10
 ```
 ```markdown
-[![alt text](http://..../badge/bvberkum/hubmon)](https://hub.docker.com/r/bvberkum/hubmon)
+[![alt text](http://localhost:8123/badge/bvberkum/hubmon)](https://hub.docker.com/r/bvberkum/hubmon)
 ```
 
 ### Master:
+
 ![latest/master](https://img.shields.io/github/last-commit/bvberkum/x-docker-hub-build-monitor/master.svg)
 ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/hubmon/latest.svg)
 ![image layers](https://img.shields.io/imagelayers/layers/bvberkum/hubmon/latest.svg)
