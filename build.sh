@@ -7,10 +7,12 @@ test -e ca-certificates.crt || {
     cp /etc/ssl/certs/ca-certificates.crt /data'
 }
 
+test ! -e main || rm main
+
 go get github.com/PuerkitoBio/goquery &&
 go get github.com/hoisie/redis &&
 CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . &&
-docker rmi -f hubmon && 
+docker rmi -f hubmon &&
 docker build -t hubmon . &&
 echo "Starting test server" &&
 docker run --link redis:db -ti -p 8123:80 hubmon -redis db:6379 -cache-timeout 10
