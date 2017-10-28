@@ -1,0 +1,3 @@
+App-Id: x-docker-hub-build-monitor
+Main-File: README.md
+Other-Files: main.go *.sh
