@@ -4,7 +4,7 @@ set -e
 test -e ca-certificates.crt || {
   docker run -v $(pwd):/data -t --rm ubuntu:17.04 bash -c \
     'apt-get update -qqy && apt-get install ca-certificates coreutils -qqy && \
-    cp /etc/ssl/certs/ca-certificates.crt /data'
+      cp /etc/ssl/certs/ca-certificates.crt /data'
 }
 
 test ! -e main || rm main
