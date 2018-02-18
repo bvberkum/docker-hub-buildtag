@@ -9,7 +9,8 @@ test -e ca-certificates.crt || {
 
 test ! -e main || rm main
 
-# TODO: use golang-builder
+# TODO: use golang-builder. see also .travis.yml, and proj x-ci and x-golang
+
 #docker run --rm \
 #  -v "$(pwd):/src" \
 #  -v /var/run/docker.sock:/var/run/docker.sock \
