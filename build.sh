@@ -20,7 +20,7 @@ false && {
 
   # use golang-builder instead
   docker run --rm \
-    -e CGO_ENABLED=true \
+    -e CGO_ENABLED=false \
     -e COMPRESS_BINARY=true \
     -e BUILD_GOOS="$BUILD_GOOS" \
     -e BUILD_GOARCH="$BUILD_GOARCH" \
@@ -29,6 +29,6 @@ false && {
     centurylink/golang-builder-cross $IMG
 }
 
-. ./hooks/test || docker logs -f hubmon-test
+./hooks/test || docker logs -f hubmon-test
 
 # Id: x-docker-hub-build-monitor/0.0.2-dev build.sh

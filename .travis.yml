@@ -9,7 +9,7 @@ env:
   global:
     - NS_NAME=bvberkum
     - APP_ID=hubmon
-    - BUILD_GOARCH="386 amd64 arm" 
+    - BUILD_GOARCH="386 amd64" 
     - BUILD_GOOS="linux" 
     - DO_GITHUB_DEPLOY=1
 
