@@ -1,0 +1,33 @@
+- type: application/vnd.org.wtwta.project
+  bin: hubmon
+  id: x-docker-hub-build-monitor
+  main: x-docker-hub-build-monitor
+  version: 0.0.2-dev # x-docker-hub-build-monitor
+  license: MIT
+  urls:
+    base:
+      - http://github.com/bvberkum/x-docker-hub-build-monitor
+    license:
+      - https://choosealicense.com/licenses/mit/
+      - https://opensource.org/licenses/MIT
+    source-code:
+      - http://github.com/bvberkum/x-docker-hub-build-monitor.git
+    images:
+      - https://hub.docker.com/r/bvberkum/x-docker-hub-build-monitor
+    builds:
+      - https://travis-ci.org/bvberkum/x-docker-hub-build-monitor
+  repositories:
+    github: git@github.com:bvberkum/x-docker-hub-build-monitor.git
+  scripts:
+    init:
+      - htd package update
+      - vc regenerate
+    check:
+      - verbosity=1 git-versioning check
+    pre-commit:
+      - make
+    docs:
+      - make doc
+    hubmon-help:
+      - docker run --rm bvberkum/hubmon -h
+

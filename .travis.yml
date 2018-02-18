@@ -5,35 +5,51 @@ services:
 
 language: go
 
+env:
+  global:
+    - NS_NAME=bvberkum
+    - APP_ID=hubmon
+    - BUILD_GOARCH="386 amd64 arm" 
+    - BUILD_GOOS="linux" 
+    - DO_GITHUB_DEPLOY=1
+
 script:
   - set -e
   - test -e ca-certificates.crt || {
       docker run -v $(pwd):/data -t --rm ubuntu:17.04 bash -c \
         'apt-get update -qqy && apt-get install ca-certificates -qqy && /bin/cp /etc/ssl/certs/ca-certificates.crt /data';
     }
-  - go get github.com/PuerkitoBio/goquery &&
-    go get github.com/hoisie/redis &&
-    CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
-  - docker build -t hubmon .
+  - docker run --rm
+    -e CGO_ENABLED=0
+    -e COMPRESS_BINARY=true
+    -e BUILD_GOOS="$BUILD_GOOD"
+    -e BUILD_GOARCH="$BUILD_GOARCH"
+    -v "$(pwd -P):/src"
+    -v /var/run/docker.sock:/var/run/docker.sock
+    centurylink/golang-builder-cross $APP_ID:local
+#  - go get github.com/PuerkitoBio/goquery &&
+#    go get github.com/hoisie/redis &&
+#    CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+#  - docker build -t $APP_ID .
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   - echo '---------' && env && echo '--------------'
-  - echo "Pushing hubmon:$TRAVIS_BRANCH or hubmon:$TRAVIS_TAG"
+  - echo "Pushing $APP_ID:$TRAVIS_BRANCH or $APP_ID:$TRAVIS_TAG"
   - case "$TRAVIS_BRANCH" in
       dev )
-          docker tag hubmon:latest $DOCKER_USERNAME/hubmon:dev;
-          docker push $DOCKER_USERNAME/hubmon:dev
+          docker tag $APP_ID:local $DOCKER_USERNAME/$APP_ID:dev;
+          docker push $DOCKER_USERNAME/$APP_ID:dev
         ;;
       master )
-          docker tag hubmon:latest $DOCKER_USERNAME/hubmon:latest;
-          docker push $DOCKER_USERNAME/hubmon:latest
+          docker tag $APP_ID:local $DOCKER_USERNAME/$APP_ID:latest;
+          docker push $DOCKER_USERNAME/$APP_ID:local
         ;;
     esac
   - case "$TRAVIS_TAG" in
       v[0-9]* )
           tag="$(echo $TRAVIS_TAG | cut -c2-)";
-          docker tag hubmon:latest $DOCKER_USERNAME/hubmon:$tag;
-          docker push $DOCKER_USERNAME/hubmon:$tag
+          docker tag $APP_ID:local $DOCKER_USERNAME/$APP_ID:$tag;
+          docker push $DOCKER_USERNAME/$APP_ID:$tag
         ;;
     esac
