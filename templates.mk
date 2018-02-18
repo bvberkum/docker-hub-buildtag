@@ -32,8 +32,7 @@ export FIG1_DIGRAPH
 define ReadMe_md
 # [![](http://img.shields.io/travis/bvberkum/$$package_main.svg)](https://travis-ci.org/bvberkum/$$package_main) ![repo license](https://img.shields.io/github/license/bvberkum/$$package_main.svg) ![commits per year](https://img.shields.io/github/commit-activity/y/bvberkum/$$package_main.svg) ![](https://img.shields.io/github/languages/code-size/bvberkum/$$package_main.svg) ![](https://img.shields.io/github/repo-size/bvberkum/$$package_main.svg)
 ###### master: ![latest/master](https://img.shields.io/github/last-commit/bvberkum/$$package_main/master.svg) latest: ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/$$package_bin/latest.svg) ![image layers](https://img.shields.io/imagelayers/layers/bvberkum/$$package_bin/latest.svg) release: ![](https://img.shields.io/github/tag/bvberkum/$$package_main.svg)
-###### dev: ![dev](https://img.shields.io/github/last-commit/bvberkum/$$package_main/dev.svg) ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/$$package_bin/dev.svg) ![image
-layers](https://img.shields.io/imagelayers/layers/bvberkum/$$package_bin/dev.svg)
+###### dev: ![dev](https://img.shields.io/github/last-commit/bvberkum/$$package_main/dev.svg) ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/$$package_bin/dev.svg) ![image layers](https://img.shields.io/imagelayers/layers/bvberkum/$$package_bin/dev.svg)
 
 ##### Version: $$package_version
 
