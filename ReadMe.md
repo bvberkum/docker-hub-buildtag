@@ -28,7 +28,7 @@ docker run --link redis:db -p 8123:80 bvberkum/hubmon -redis db:6379 -cache-time
 
 ### Test
 ```bash
-docker-compose -phubmon build && docker-compose -phubmon up -d sut && docker logs -f hubmon_sut_1 && docker-compose -phubmon rm --force -v
+sh ./test.sh
 ```
 
 #### Travis
