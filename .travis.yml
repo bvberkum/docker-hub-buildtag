@@ -8,7 +8,8 @@ language: go
 env:
   global:
     - NS_NAME=bvberkum
-    - APP_ID=hubmon
+    - APP_ID=x-docker-hub-build-monitor
+    - APP_BIN=hubmon
     - BUILD_GOARCH="386 amd64" 
     - BUILD_GOOS="linux" 
     - DO_GITHUB_DEPLOY=1
