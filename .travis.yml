@@ -61,4 +61,4 @@ deploy:
     - $APP_ID-darwin-386
   on:
     repo: $NS_NAME/$APP_ID
-    branch: dev
+    tags: true
