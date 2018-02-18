@@ -15,4 +15,4 @@ docker rm -f hubmon-test || {
   exit 1
 }
 
-# Id: x-docker-hub-build-monitor/0.0.2-dev
+# Id: x-docker-hub-build-monitor/0.0.3-dev

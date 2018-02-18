@@ -2,7 +2,7 @@
 ###### master: ![latest/master](https://img.shields.io/github/last-commit/bvberkum/x-docker-hub-build-monitor/master.svg) latest: ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/hubmon/latest.svg) ![image layers](https://img.shields.io/imagelayers/layers/bvberkum/hubmon/latest.svg) release: ![](https://img.shields.io/github/tag/bvberkum/x-docker-hub-build-monitor.svg)
 ###### dev: ![dev](https://img.shields.io/github/last-commit/bvberkum/x-docker-hub-build-monitor/dev.svg) ![image size](https://img.shields.io/imagelayers/image-size/bvberkum/hubmon/dev.svg) ![image layers](https://img.shields.io/imagelayers/layers/bvberkum/hubmon/dev.svg)
 
-##### Version: 0.0.2
+##### Version: 0.0.3-dev
 
 - Fork of [cpuguy83/docker-hub-buildtag](/cpuguy83/docker-hub-buildtag) updated
 - Generates build status tags for Dockerhub automated builds

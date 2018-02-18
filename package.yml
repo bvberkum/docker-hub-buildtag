@@ -2,7 +2,7 @@
   bin: hubmon
   id: x-docker-hub-build-monitor
   main: x-docker-hub-build-monitor
-  version: 0.0.2 # x-docker-hub-build-monitor
+  version: 0.0.3-dev # x-docker-hub-build-monitor
   license: MIT
   urls:
     base:
