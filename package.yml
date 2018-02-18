@@ -22,6 +22,10 @@
     init:
       - htd package update
       - vc regenerate
+    travis-init:
+      - test -x \"$(which travis)\" || gem install travis
+      - . ./travis-setenv.sh
+      #- travis setup releases
     check:
       - verbosity=1 git-versioning check
     pre-commit:
@@ -30,4 +34,3 @@
       - make doc
     hubmon-help:
       - docker run --rm bvberkum/hubmon -h
-
