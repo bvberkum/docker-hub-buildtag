@@ -55,23 +55,17 @@ docker run --link redis:db -p 8123:80 bvberkum/hubmon -redis db:6379 -cache-time
 [![alt text](http://localhost:8123/badge/bvberkum/hubmon)](https://hub.docker.com/r/bvberkum/hubmon)
 \`\`\`
 
-### Test:
+### Test
 \`\`\`bash
+$$package_scripts_test__0
 \`\`\`
 
 #### Travis
-Source and docs: [travis-ci client](https://github.com/travis-ci/travis.rb)
 \`\`\`bash
-ruby -v # check for ruby version
-gem install travis -v 1.8.8 --no-rdoc --no-ri 
-travis version
-travis env set DOCKER_USERNAME myusername
-travis env set DOCKER_PASSWORD secretsecret
+$$package_scripts_travis_init__0
+$$package_scripts_travis_init__1
+$$package_scripts_travis_init__2
 \`\`\`
-See script at [travis-setenv](travis-setenv.sh)
 endef
 
-#define ReadMe_rst
-#endef
-
-export ReadMe_md ReadMe_rst
+export ReadMe_md

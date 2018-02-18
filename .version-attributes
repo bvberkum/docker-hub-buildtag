@@ -1,3 +1,5 @@
 App-Id: x-docker-hub-build-monitor
-Main-File: README.md
-Other-Files: main.go *.sh
+#Main-File: ReadMe.md
+Version: 0.0.2-dev
+Main-File: package.yml
+Other-Files: *.sh hooks/* package.yml 

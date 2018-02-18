@@ -13,11 +13,7 @@ $/%.html: $/%.md
 $/%.md: $/%.txt
 	@$(call sh-template,ReadMe_md) > $@
 
-#$/%.rst: $/%.txt
-#	@$(call sh-template,ReadMe_rst) > $@
-
 $/ReadMe-fig1.gv:
-	{ echo 'cat <<EOM' ; echo "$$FIG1_DIGRAPH" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i -
 	@$(call sh-template,FIG1_DIGRAPH) > $@
 
 $/.git/hooks/pre-commit:
@@ -46,11 +42,15 @@ TOOLING = $/Makefile $/.package.sh
 $(TRGT): $(TOOLING) templates.mk
 $(ASSETS): $(TOOLING)
 
+check: $(TOOLING)
+	git-versioning check
+
 build: $(ASSETS) $(DOCS) $(TRGT)
+	sh ./build.sh
 
 doc: $(DOCS) $(ASSETS)
 
-all: $(TRGT)
+all: check $(TRGT)
 
-STRGT = default doc all build
+STRGT = check default doc all build
 .PHONY: $(STRGT)

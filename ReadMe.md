@@ -27,17 +27,14 @@ docker run --link redis:db -p 8123:80 bvberkum/hubmon -redis db:6379 -cache-time
 [![alt text](http://localhost:8123/badge/bvberkum/hubmon)](https://hub.docker.com/r/bvberkum/hubmon)
 ```
 
-### Test:
+### Test
 ```bash
+docker-compose -phubmon build && docker-compose -phubmon up -d sut && docker logs -f hubmon_sut_1 && docker-compose -phubmon rm --force -v
 ```
 
 #### Travis
-Source and docs: [travis-ci client](https://github.com/travis-ci/travis.rb)
 ```bash
-ruby -v # check for ruby version
-gem install travis -v 1.8.8 --no-rdoc --no-ri 
-travis version
-travis env set DOCKER_USERNAME myusername
-travis env set DOCKER_PASSWORD secretsecret
+test -x "/usr/local/bin/travis" || gem install travis
+. ./travis-setenv.sh
+travis setup releases
 ```
-See script at [travis-setenv](travis-setenv.sh)

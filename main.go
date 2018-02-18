@@ -150,5 +150,10 @@ func getBuilds(src string) ([]string, []string, error) {
     states = append( states, status )
 	})
 
+  if len(states) == 0 {
+		err = fmt.Errorf("Not an autobuild")
+    return nil, nil, err
+  }
+
 	return build_ids, states, err
 }
