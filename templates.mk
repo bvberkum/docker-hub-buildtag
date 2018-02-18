@@ -18,7 +18,7 @@ digraph {
   GIT -> Travis [ label="build" ] ;
   Travis -> Docker_Hub [ label="images" ] ;
   Travis -> GIT [ label="releases" ] ;
-
+	
   labelloc="t";
   label="Build app with centurylink/golang-builder-cross" ;
 

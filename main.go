@@ -1,4 +1,4 @@
-package main
+package main // import "github.com/bvberkum/x-docker-hub-build-monitor"
 
 import (
 	"flag"

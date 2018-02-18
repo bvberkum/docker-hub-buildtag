@@ -14,7 +14,6 @@ env:
     - DO_GITHUB_DEPLOY=1
 
 script:
-  - set -e
   - . ./cert-init.sh
   - docker run --rm
     -e CGO_ENABLED=true
