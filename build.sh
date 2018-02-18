@@ -29,4 +29,4 @@ test -x "$(which go)" && {
 
 . ./hooks/test
 
-# Id: x-docker-hub-build-monitor/0.0.2-dev build.sh
+# Id: x-docker-hub-build-monitor/0.0.2 build.sh
