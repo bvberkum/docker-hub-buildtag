@@ -39,7 +39,7 @@ after_success:
         ;;
       master )
           docker tag $APP_ID:local $DOCKER_USERNAME/$APP_ID:latest;
-          docker push $DOCKER_USERNAME/$APP_ID:local
+          docker push $DOCKER_USERNAME/$APP_ID:latest
         ;;
     esac
   - case "$TRAVIS_TAG" in
