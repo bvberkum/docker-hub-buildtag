@@ -10,6 +10,9 @@ docker rm -f hubmon-test || true
 docker run --link redis:db -d -p 8123:80 --name hubmon-test $IMG -redis db:6379 -cache-timeout 10 &
 sleep 1
 curl -vvf http://localhost:8123/badge/bvberkum/treebox
-docker rm -f hubmon-test
+docker rm -f hubmon-test || {
+  docker logs hubmon-test
+  exit 1
+}
 
 # Id: x-docker-hub-build-monitor/0.0.2-dev

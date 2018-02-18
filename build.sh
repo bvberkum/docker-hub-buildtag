@@ -6,15 +6,13 @@ set -e
 
 test ! -e main || rm main
 
-#test -x "$(which go)" && {
-false && {
+test -x "$(which go)" && {
 
   go get github.com/PuerkitoBio/goquery &&
   go get github.com/hoisie/redis &&
   CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . &&
   docker rmi -f $IMG &&
-  docker build --env bin=main -t $IMG .
-  #docker build --build-arg bin=main -t $IMG .
+  docker build --build-arg bin=main -t $IMG .
 
 } || {
 
@@ -29,6 +27,6 @@ false && {
     centurylink/golang-builder-cross $IMG
 }
 
-./hooks/test || docker logs -f hubmon-test
+. ./hooks/test
 
 # Id: x-docker-hub-build-monitor/0.0.2-dev build.sh
